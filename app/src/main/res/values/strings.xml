@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Instagram Viewer</string>
     <string name="popular_photos">Popular Photos</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 </resources>
