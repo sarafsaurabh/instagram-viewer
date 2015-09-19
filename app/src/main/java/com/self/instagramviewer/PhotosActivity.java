@@ -1,6 +1,7 @@
 package com.self.instagramviewer;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -24,6 +25,7 @@ public class PhotosActivity extends AppCompatActivity {
     private static final String INSTAGRAM_CLIENT_ID = "9aac95c7addd4975854a9cdd13a40c69";
     private ArrayList<InstagramPhoto> photos;
     private InstagramPhotosAdapter aPhotos;
+    private SwipeRefreshLayout swipeContainer;
 
 
     @Override
@@ -35,6 +37,21 @@ public class PhotosActivity extends AppCompatActivity {
 
         ListView lvPhotos = (ListView) findViewById(R.id.lvPhotos);
         lvPhotos.setAdapter(aPhotos);
+
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                aPhotos.clear();
+                fetchPopularPhotos();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+
         fetchPopularPhotos();
 
     }
@@ -94,7 +111,6 @@ public class PhotosActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     Log.e(getClass().toString(), "Error encountered while parsing JSON", e);
                 }
-
                 aPhotos.notifyDataSetChanged();
             }
         });
