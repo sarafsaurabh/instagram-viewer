@@ -26,9 +26,8 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/cgtKeoG.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Video Walkthrough](https://github.com/sarafsaurabh/instagram-viewer/blob/master/viewer.gif)
 
-<img src='https://media.giphy.com/media/3oEduQ0SekbPaCMBTW/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
